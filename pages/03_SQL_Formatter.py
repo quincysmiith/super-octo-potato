@@ -24,7 +24,6 @@ footer {visibility: hidden; }
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 
-
 # -----------------------------------------
 # Functionality
 # -----------------------------------------

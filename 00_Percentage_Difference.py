@@ -29,8 +29,6 @@ def main():
             f"The percentage difference between {num1} and {num2} is: {percentage_difference:.2f}%"
         )
 
-
-
     with open("matomo_tracking.html") as f:
         html_string = f.read()
         html(html_string)
