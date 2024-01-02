@@ -24,3 +24,13 @@ html(embed_code, width=700, height=600)
 st.markdown("""
             For a guide on how to use this tool see this [post](https://marquinsmith.com/2017/09/12/using-the-adobe-call-parser/)
             """)
+
+
+
+# -----------------------------------------
+# Matomo tracking
+# -----------------------------------------
+
+with open("matomo_tracking.html") as f:
+    html_string = f.read()
+    html(html_string)
