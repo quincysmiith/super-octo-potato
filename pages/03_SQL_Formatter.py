@@ -24,13 +24,7 @@ footer {visibility: hidden; }
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 
-# -----------------------------------------
-# Matomo tracking
-# -----------------------------------------
 
-with open("matomo_tracking.html") as f:
-    html_string = f.read()
-    html(html_string)
 # -----------------------------------------
 # Functionality
 # -----------------------------------------
@@ -94,3 +88,11 @@ with st.form("SQL form"):
         with col3:
             st.markdown("### Issues identified")
             st.dataframe(data=df)
+
+# -----------------------------------------
+# Matomo tracking
+# -----------------------------------------
+
+with open("matomo_tracking.html") as f:
+    html_string = f.read()
+    html(html_string)

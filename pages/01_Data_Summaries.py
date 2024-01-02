@@ -11,25 +11,38 @@ st.set_page_config(layout="wide",
                    page_title="Data Summaries", 
                    page_icon="🧊")
 
+st.markdown("# Data Summaries")
 
+st.markdown("""
+            Understand your data with a quick data summary.
+            This app summarizes your data using Pandas Profiling and Sweetviz. 
+            
+            You can also download the reports as html files.
+            """)
 
+st.markdown("---")
 
-uploaded_file = st.file_uploader("Choose a file")
+st.markdown("## Upload your data")
 
+uploaded_file = st.file_uploader("Choose a csv file to see a summary of the data within", type=["csv"])
+
+st.markdown("---")
+
+st.markdown("## Data Summaries")
 
 if uploaded_file is not None:
     data = pd.read_csv(uploaded_file)
     profile = ProfileReport(data, explorative=True)
 
-    st.markdown("<h1 style='text-align: center;'>Pandas Profiling Report</h1>", unsafe_allow_html=True)
+    st.markdown("### Ydata Profile report")
     html_report = profile.to_html()
     with st.expander("Expand for Ydata profiling report"):
         html(html_report, width=700, height=1000, scrolling=True)
     profile.to_file("report.html")
-    st.download_button("Download Ydata report", "report.html", file_name="ydata_report.html")
+    st.download_button("Download Ydata report", html_report, file_name="ydata_report.html")
 
 
-    st.markdown("<h1 style='text-align: center;'>Sweetviz data report</h1>", unsafe_allow_html=True)
+    st.markdown("### Sweetviz Profile report")
     my_report = sv.analyze(data)
     my_report.show_html(filepath='SWEETVIZ_REPORT.html', 
             open_browser=False, 
@@ -39,5 +52,13 @@ if uploaded_file is not None:
         sweetviz_html = f.read()
     with st.expander("Expand for Sweetviz report"):
         html(sweetviz_html, height=1000, scrolling=True)
-    st.download_button("Download Sweetviz report", "SWEETVIZ_REPORT.html", file_name="sweetviz_report.html")
+    st.download_button("Download Sweetviz report", sweetviz_html, file_name="sweetviz_report.html")
 
+
+# -----------------------------------------
+# Matomo tracking
+# -----------------------------------------
+
+with open("matomo_tracking.html") as f:
+    html_string = f.read()
+    html(html_string)

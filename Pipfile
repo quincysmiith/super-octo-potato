@@ -10,6 +10,7 @@ pandas = "*"
 sqlfluff = "*"
 ydata-profiling = "*"
 sweetviz = "*"
+pygwalker = "*"
 
 [dev-packages]
 

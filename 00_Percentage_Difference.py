@@ -30,11 +30,11 @@ def main():
         )
 
 
-"""
-with open("matomo_tracking.html") as f:
-    html_string = f.read()
-    html(html_string)
-"""
+
+    with open("matomo_tracking.html") as f:
+        html_string = f.read()
+        html(html_string)
+
 
 if __name__ == "__main__":
     main()
