@@ -10,6 +10,7 @@ associated with being a data analyst.
 - Adobe call parser
 - SQL query formatter
 - Data summaries
+- Data exploration
 
 
 ## To Do

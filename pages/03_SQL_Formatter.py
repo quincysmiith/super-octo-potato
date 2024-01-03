@@ -4,7 +4,7 @@ import pandas as pd
 
 # from datetime import datetime
 from pathlib import Path
-from streamlit.components.v1 import html
+from utils import matomo_tracking, make_logo
 
 # -----------------------------------------
 # Global settings
@@ -23,6 +23,7 @@ footer {visibility: hidden; }
 """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
+make_logo()
 
 # -----------------------------------------
 # Functionality
@@ -88,10 +89,4 @@ with st.form("SQL form"):
             st.markdown("### Issues identified")
             st.dataframe(data=df)
 
-# -----------------------------------------
-# Matomo tracking
-# -----------------------------------------
-
-with open("matomo_tracking.html") as f:
-    html_string = f.read()
-    html(html_string)
+matomo_tracking()

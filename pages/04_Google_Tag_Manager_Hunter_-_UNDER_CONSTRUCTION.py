@@ -1,5 +1,7 @@
 import streamlit as st
+from utils import matomo_tracking, make_logo
 
+make_logo()
 st.markdown("# Google Tag Manager Hunter")
 
 st.markdown(
@@ -13,10 +15,4 @@ st.image(
 )
 
 
-# -----------------------------------------
-# Matomo tracking
-# -----------------------------------------
-
-with open("matomo_tracking.html") as f:
-    html_string = f.read()
-    html(html_string)
+matomo_tracking()

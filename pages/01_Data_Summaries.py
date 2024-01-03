@@ -3,9 +3,11 @@ from streamlit.components.v1 import html
 from ydata_profiling import ProfileReport
 import pandas as pd
 import sweetviz as sv
-
+from utils import matomo_tracking, make_logo
 
 st.set_page_config(layout="wide", page_title="Data Summaries", page_icon="🧊")
+
+make_logo()
 
 st.markdown("# Data Summaries")
 

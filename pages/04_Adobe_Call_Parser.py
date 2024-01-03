@@ -1,11 +1,14 @@
 import streamlit as st
 from streamlit.components.v1 import html
+from utils import matomo_tracking, make_logo
 
 st.set_page_config(
     page_title="Adobe Call Parser",
     page_icon="🧊",
     layout="wide",
 )
+
+make_logo()
 
 st.title("Adobe Call Parser")
 
@@ -28,10 +31,4 @@ st.markdown(
 )
 
 
-# -----------------------------------------
-# Matomo tracking
-# -----------------------------------------
-
-with open("matomo_tracking.html") as f:
-    html_string = f.read()
-    html(html_string)
+matomo_tracking()

@@ -1,11 +1,15 @@
 import streamlit as st
 from streamlit.components.v1 import html
+from utils import matomo_tracking, make_logo
 
 st.set_page_config(
     page_title="Percentage Difference Calculator",
     page_icon="🧊",
     layout="wide",
 )
+
+make_logo()
+
 
 
 def calculate_percentage_difference(num1, num2):
@@ -29,9 +33,7 @@ def main():
             f"The percentage difference between {num1} and {num2} is: {percentage_difference:.2f}%"
         )
 
-    with open("matomo_tracking.html") as f:
-        html_string = f.read()
-        html(html_string)
+    matomo_tracking()
 
 
 if __name__ == "__main__":

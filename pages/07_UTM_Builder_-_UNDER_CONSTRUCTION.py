@@ -1,6 +1,7 @@
 import streamlit as st
+from utils import matomo_tracking, make_logo
 
-
+make_logo()
 st.markdown("# UTM Code Builder")
 
 st.markdown("## Page under construction")
