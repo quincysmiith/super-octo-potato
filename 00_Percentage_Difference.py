@@ -11,7 +11,6 @@ st.set_page_config(
 make_logo()
 
 
-
 def calculate_percentage_difference(num1, num2):
     if num1 == 0 and num2 == 0:
         return "Both numbers are zero. Percentage difference is undefined."

@@ -17,16 +17,16 @@ st.markdown("---")
 
 st.markdown("## Upload a csv file")
 
-uploaded_file = st.file_uploader("Choose a csv file to see a summary of the data within", type=["csv"])
+uploaded_file = st.file_uploader(
+    "Choose a csv file to see a summary of the data within", type=["csv"]
+)
 
 if uploaded_file is not None:
     data = pd.read_csv(uploaded_file)
 
-
     @st.cache_resource
     def get_renderer():
         return StreamlitRenderer(data)
-    
 
     st.markdown("## Explore the data")
 
